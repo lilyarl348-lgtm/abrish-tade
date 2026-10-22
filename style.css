@@ -1,5 +1,5 @@
 /* =========================================
-   DAB LOUNGE - COMPLETE STYLE CSS
+   Y-TECH DIGITAL SOLUTION - STYLE CSS
 ========================================= */
 
 * {
@@ -14,38 +14,48 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    color: #333;
+    color: #f5f5f5;
     overflow-x: hidden;
-    background: #fff;
+    background: #080b14;
+    line-height: 1.6;
 }
 
-/* ================= HEADER ================= */
+:root {
+    --gold: #d4af37;
+    --dark: #080b14;
+    --card: #111827;
+    --text: #f5f5f5;
+    --muted: #b7bdc9;
+}
+
+/* HEADER */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    position: relative;
-    z-index: 100;
+    gap: 20px;
+    padding: 15px 5%;
+    background: #0b1020;
+    border-bottom: 1px solid rgba(212,175,55,0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 24px;
+    gap: 12px;
+    font-size: 22px;
     font-weight: bold;
-    color: #222;
+    color: var(--gold);
 }
 
 .logo img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
-    display: block;
 }
 
 .logo span {
@@ -55,111 +65,78 @@ header {
 nav {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 18px;
 }
 
 nav a {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 16px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #d4a017;
+nav a:hover,
+nav a.active {
+    color: var(--gold);
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero {
-    height: 100vh;
-    min-height: 600px;
+    min-height: 650px;
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image:
-        linear-gradient(
-            rgba(0,0,0,0.50),
-            rgba(0,0,0,0.50)
+    padding: 40px 20px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(212,175,55,0.18),
+            transparent 38%
         ),
-        url("gracehotel.jpg");
-    animation: heroSlideshow 15s infinite;
-}
-
-@keyframes heroSlideshow {
-    0%, 30% {
-        background-image:
-            linear-gradient(
-                rgba(0,0,0,0.50),
-                rgba(0,0,0,0.50)
-            ),
-            url("gracehotel.jpg");
-    }
-
-    33%, 63% {
-        background-image:
-            linear-gradient(
-                rgba(0,0,0,0.50),
-                rgba(0,0,0,0.50)
-            ),
-            url("gracet.jpg");
-    }
-
-    66%, 96% {
-        background-image:
-            linear-gradient(
-                rgba(0,0,0,0.50),
-                rgba(0,0,0,0.50)
-            ),
-            url("food.jpg");
-    }
-
-    100% {
-        background-image:
-            linear-gradient(
-                rgba(0,0,0,0.50),
-                rgba(0,0,0,0.50)
-            ),
-            url("gracehotel.jpg");
-    }
+        linear-gradient(135deg, #080b14, #111c32 60%, #080b14);
 }
 
 .hero-text {
-    color: white;
-    padding: 20px;
-    max-width: 900px;
+    max-width: 950px;
     width: 100%;
     position: relative;
     z-index: 1;
 }
 
 .hero-text h1 {
-    font-size: 45px;
-    margin-bottom: 15px;
-    line-height: 1.3;
+    color: white;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.25;
+    margin-bottom: 22px;
+}
+
+.hero-text h1 span {
+    color: var(--gold);
 }
 
 .hero-text p {
-    font-size: 20px;
-    margin-bottom: 18px;
-    line-height: 1.6;
+    color: var(--muted);
+    font-size: 19px;
+    max-width: 750px;
+    margin: 0 auto 28px;
+    line-height: 1.8;
 }
 
 .en-subtitle {
+    color: var(--gold);
     opacity: 0.95;
 }
 
-/* ================= TYPING TEXT ================= */
-
 #typing-text {
     display: inline-block;
-    border-right: 3px solid white;
+    border-right: 3px solid var(--gold);
     padding-right: 6px;
     animation: cursorBlink 0.7s infinite;
 }
@@ -170,71 +147,104 @@ nav a:hover {
     }
 }
 
-/* ================= SECTIONS ================= */
+/* BUTTONS */
+
+.btn,
+button {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    background: var(--gold);
+    color: #111;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover,
+button:hover {
+    background: transparent;
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--gold);
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+/* SECTIONS */
 
 .about,
 .contact {
-    padding: 65px 20px;
+    padding: 75px 6%;
     text-align: center;
 }
 
 .rooms,
 .services-section,
 .gallery {
-    padding: 70px 5%;
+    padding: 80px 5%;
     text-align: center;
 }
 
 .rooms,
 .gallery {
-    background: #f9f9f9;
+    background: #0d1322;
 }
 
-.services-section {
-    background: #fff;
+.services-section,
+.about,
+.contact {
+    background: var(--dark);
 }
 
 h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    line-height: 1.5;
+    color: white;
+    font-size: clamp(26px, 4vw, 36px);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+h2 span,
+.en-title {
+    color: var(--gold);
 }
 
 .en-title {
-    font-size: 0.85em;
+    font-size: 0.75em;
     margin-left: 5px;
 }
 
 .section-desc {
-    color: #666;
-    margin-bottom: 40px;
+    color: var(--muted);
+    max-width: 800px;
+    margin: 0 auto 40px;
     line-height: 1.8;
 }
 
-/* ================= ABOUT ================= */
-
 .about p {
-    max-width: 850px;
+    max-width: 900px;
     margin: 0 auto 18px;
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
 .en-desc {
-    color: #666;
+    color: var(--muted);
 }
 
-/* ================= ROOMS ================= */
+/* SERVICE AND PROJECT CARDS */
 
-.room-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-/* ================= SERVICES ================= */
-
+.room-container,
 .services-container {
     display: flex;
     justify-content: center;
@@ -242,29 +252,30 @@ h2 {
     flex-wrap: wrap;
     gap: 25px;
 }
-/* ================= CARDS ================= */
-
 .room-card,
 .service-card {
     width: 280px;
-    background: white;
-    border-radius: 10px;
+    max-width: 100%;
+    background: var(--card);
+    border: 1px solid rgba(212,175,55,0.18);
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     display: flex;
     flex-direction: column;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.22);
     transition:
         transform 0.3s ease,
+        border-color 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 .room-card:hover,
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(212,175,55,0.12);
 }
-
-/* ================= CARD PHOTOS ================= */
 
 .room-card img,
 .service-card img {
@@ -276,32 +287,28 @@ h2 {
     transform: none !important;
 }
 
-/* ================= CARD TEXT ================= */
-
 .room-info {
-    padding: 20px;
-    text-align: left;
-    background: white;
+    padding: 22px;
     flex-grow: 1;
 }
 
 .room-info h3 {
-    margin-bottom: 10px;
-    color: #222;
-    line-height: 1.5;
+    color: var(--gold);
     font-size: 19px;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
 .room-info p {
-    color: #555;
-    font-size: 13px;
-    line-height: 1.7;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
 }
 
-/* ================= GALLERY ================= */
+/* GALLERY */
 
 .gallery-grid {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -314,26 +321,17 @@ h2 {
     object-fit: cover;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
-    animation: galleryMove 7s ease-in-out infinite alternate;
-    transform-origin: center center;
+    border: 1px solid rgba(212,175,55,0.2);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-@keyframes galleryMove {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.04);
-    }
-
-    100% {
-        transform: scale(1.08);
-    }
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    border-color: var(--gold);
 }
 
-/* ================= LIGHTBOX ================= */
+/* LIGHTBOX */
 
 .lightbox {
     display: none;
@@ -342,7 +340,7 @@ h2 {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0,0,0,0.94);
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -355,8 +353,6 @@ h2 {
     border-radius: 10px;
 }
 
-/* ================= CLOSE BUTTON ================= */
-
 .close-lightbox {
     position: absolute;
     top: 15px;
@@ -368,30 +364,23 @@ h2 {
     z-index: 10002;
 }
 
-.close-lightbox:hover {
-    transform: scale(1.1);
-}
-
-/* ================= GALLERY ARROWS ================= */
-
 .prev-btn,
 .next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border: none;
     border-radius: 50%;
-    background: rgba(0,0,0,0.65);
-    color: white;
-    font-size: 32px;
+    background: rgba(212,175,55,0.9);
+    color: #111;
+    font-size: 28px;
     cursor: pointer;
     z-index: 10001;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease;
 }
 
 .prev-btn {
@@ -402,25 +391,31 @@ h2 {
     right: 25px;
 }
 
-.prev-btn:hover,
-.next-btn:hover {
-    background: #d4a017;
-}
-
-/* ================= CONTACT ================= */
+/* CONTACT */
 
 .contact p {
-    font-size: 18px;
+    font-size: 17px;
+    color: var(--muted);
     margin-top: 15px;
 }
 
-/* ================= FOOTER ================= */
+.contact a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
 
 footer {
-    padding: 25px 20px;
+    padding: 28px 20px;
     text-align: center;
-    background: #222;
-    color: white;
+    background: #05070d;
+    color: var(--muted);
+    border-top: 1px solid rgba(212,175,55,0.2);
     line-height: 1.8;
 }
 
@@ -428,175 +423,101 @@ footer p {
     margin-bottom: 8px;
 }
 
-/* ================= TABLET & MOBILE ================= */
+footer a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+/* TABLET AND MOBILE */
 
 @media (max-width: 768px) {
-
     header {
         flex-direction: column;
-        padding: 15px 10px;
+        padding: 14px 12px;
         gap: 12px;
     }
 
     .logo {
-        font-size: 21px;
-        text-align: center;
+        font-size: 19px;
         justify-content: center;
+        text-align: center;
     }
 
     .logo img {
-        width: 52px;
-        height: 52px;
+        width: 48px;
+        height: 48px;
     }
 
     nav {
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 6px 10px;
+        gap: 8px 14px;
     }
 
     nav a {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .hero {
-        height: 75vh;
-        min-height: 500px;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .hero-text {
-        padding: 15px;
+        height: auto;
+        min-height: 540px;
+        padding: 70px 16px;
     }
 
     .hero-text h1 {
-        font-size: 28px;
-        line-height: 1.4;
+        font-size: 32px;
     }
+
     .hero-text p {
         font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 15px;
     }
 
     .about,
     .contact {
-        padding: 50px 20px;
+        padding: 55px 18px;
     }
 
     .rooms,
     .services-section,
     .gallery {
-        padding: 50px 0;
+        padding: 55px 12px;
     }
-
-    h2 {
-        font-size: 27px;
-        padding: 0 15px;
-    }
-
-    .section-desc {
-        padding: 0 20px;
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    /* MOBILE CARDS */
 
     .room-container,
     .services-container {
-        display: block;
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .room-card,
     .service-card {
         width: 100%;
-        max-width: 100%;
-        margin: 0 0 30px 0;
-        border-radius: 0;
-        overflow: hidden;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+        max-width: 480px;
+        margin: 0 auto;
     }
-
-    /* MOBILE PHOTOS */
-
-    .room-card img,
+   .room-card img,
     .service-card img {
-        width: 100%;
-        height: 240px;
-        display: block;
-        object-fit: cover;
-        margin: 0;
-        animation: none !important;
-        transform: none !important;
+        height: 230px;
     }
-
-    /* MOBILE ROOM TEXT */
 
     .room-info {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 15px 12px 20px;
-        text-align: center;
-        background: white;
+        padding: 18px;
+        text-align: left;
     }
-
-    .room-info h3 {
-        font-size: 18px;
-        line-height: 1.4;
-        margin-bottom: 8px;
-    }
-
-    .room-info p {
-        font-size: 12.5px;
-        line-height: 1.5;
-    }
-
-    /* MOBILE GALLERY */
 
     .gallery-grid {
-        width: 100%;
-        padding: 0 10px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
     }
 
     .gallery-grid img {
-        width: 100%;
-        height: 170px;
+        height: 165px;
         border-radius: 8px;
-        object-fit: cover;
-        animation: galleryMoveMobile 7s ease-in-out infinite alternate;
-    }
-
-    @keyframes galleryMoveMobile {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.05);
-        }
-
-        100% {
-            transform: scale(1.09);
-        }
-    }
-
-    /* MOBILE LIGHTBOX */
-
-    .lightbox {
-        padding: 10px;
     }
 
     .lightbox img {
         max-width: 88%;
         max-height: 75%;
-        border-radius: 5px;
     }
 
     .close-lightbox {
@@ -607,41 +528,41 @@ footer p {
 
     .prev-btn,
     .next-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 25px;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
     }
 
     .prev-btn {
-        left: 8px;
+        left: 7px;
     }
 
     .next-btn {
-        right: 8px;
+        right: 7px;
     }
 
-    footer {
-        padding: 22px 15px;
-        font-size: 13px;
+    .btn,
+    button {
+        padding: 12px 17px;
+        font-size: 14px;
     }
 }
 
-/* ================= SMALL PHONES ================= */
+/* SMALL PHONES */
 
 @media (max-width: 400px) {
-
     .logo {
-        font-size: 19px;
+        font-size: 16px;
         gap: 7px;
     }
 
     .logo img {
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
     }
 
     nav {
-        gap: 5px 8px;
+        gap: 7px 10px;
     }
 
     nav a {
@@ -649,12 +570,11 @@ footer p {
     }
 
     .hero {
-        height: 70vh;
-        min-height: 450px;
+        min-height: 470px;
     }
 
     .hero-text h1 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .hero-text p {
@@ -662,31 +582,23 @@ footer p {
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 23px;
     }
 
-    .room-info {
-        width: 100%;
-        max-width: 100%;
-        padding: 17px 12px 20px;
-    }
-
-    .room-info h3 {
-        font-size: 17px;
-    }
-
-    .room-info p {
-        font-size: 12.5px;
+    .gallery-grid img {
+        height: 135px;
     }
 
     .room-card img,
     .service-card img {
-        height: 220px;
+        height: 200px;
     }
 
-    .gallery-grid img {
-        height: 145px;
+    .btn,
+    button {
+        padding: 11px 14px;
+        font-size: 13px;
     }
 }
 
-/* ================= END OF CSS ================= */
+/* END OF Y-TECH DIGITAL SOLUTION CSS */
